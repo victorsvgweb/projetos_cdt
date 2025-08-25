@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow com Curiosidades</title>
+    <link rel="stylesheet" href="mobile_first.css">
+    <!-- Importação da fonte Cinzel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Cabeçalho e navegação -->
+    <div class="header">
+        <div class="logo">Minha Logo</div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </div>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="slide-content">
+                <h1>Bem-vindo ao Mundo!</h1>
+                <h2>Explore as maravilhas do nosso universo</h2>
+                <p>Descubra tudo o que o nosso site tem a oferecer, com informações exclusivas e muito mais.</p>
+                <img src="https://via.placeholder.com/800x400" class="slide-image" alt="Imagem do slide">
+            </div>
+        </div>
+
+        <!-- Navegação de Slides -->
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
+
+    <!-- Dots de navegação -->
+    <div class="dots-container">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- Curiosidades -->
+    <div class="curiosidades-section">
+        <h2>Curiosidades</h2>
+        <ul>
+            <li>O universo é muito maior do que podemos imaginar.</li>
+            <li>A Terra é o único planeta conhecido com vida.</li>
+            <li>O Sol representa 99% da massa do nosso sistema solar.</li>
+        </ul>
+    </div>
+
+    <script>
+        // Script para a navegação do slideshow
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Muda de slide a cada 2 segundos
+        }
+    </script>
+</body>
+</html>
